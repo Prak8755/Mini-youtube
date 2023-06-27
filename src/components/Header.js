@@ -2,33 +2,35 @@ import React, { useEffect, useState } from 'react'
 import { HambergerLogo, Youtubelogo, searchLogo, userIcon } from '../utils/Links'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/toggleSlice';
-import { Link ,Outlet} from 'react-router-dom';
-import { setSearchBar } from '../utils/SearchSlice';
+import { Link ,Outlet, useNavigate, useSearchParams} from 'react-router-dom';
+import { showSearchBar } from '../utils/SearchSlice';
 
 
 const Header = () => {
 
-  
+ const navigate=useNavigate();
+
 
    const [search,setSearch]=useState('');
 const [suggestion,setSuggestion]=useState([]);
 // const [showSuggestion,setShowSuggestion]=useState(false);
 
 useEffect(()=>{
+
 const timer=setTimeout(() => {
    getData();
 }, 300);
+
+
 
 return function(){
    clearTimeout(timer)
 }
 },[search])
 
-// async function getData(){
-//    const data=await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${search}&key=AIzaSyC52TweZ1YkuyuMO4zom9Mq-ZTWNKBChDs`);
-//    const json =await data.json();
-//    setSuggestion(json?.items);
-// }
+
+
+
 
 //For dark and Light theme
 const [theme,setTheme]=useState('light-theme');
@@ -66,14 +68,16 @@ const status=useSelector(s=>s.search.isVisible);
          </div>
          <div className='relative'>
          <div className='flex items-center'>
-            <input type='text' className='border border-gray-500 rounded-l-3xl w-[130px] sm:w-[300px] md:w-[500px] h-6 sm:h-8 md:h-10 shadow-md text-center ' value={search} onChange={function(e){setSearch(e.target.value)}} onClick={function(){dispatch(setSearchBar())}}  />
-            <button className=' shadow-md border border-l-0 bg-slate-50 border-gray-500 rounded-r-3xl px-2 sm:px-6 h-6 sm:h-8 md:h-10'><img alt='searchLogo'src={searchLogo} className='w-4'/></button>
+            <form onSubmit={function(e){e.preventDefault(); navigate('/results/?search_query='+search);}}>
+               <input type='text' className='border border-gray-500 rounded-l-3xl w-[130px] sm:w-[300px] md:w-[500px] h-6 sm:h-8 md:h-10 shadow-md text-center ' value={search} onChange={function(e){setSearch(e.target.value);}}  onFocus={function(){dispatch(showSearchBar(true)); console.log('true')}}   /> 
+             </form>
+           <Link to={'/results/?search_query='+search}> <button className=' shadow-md border border-l-0 bg-slate-50 border-gray-500 rounded-r-3xl px-2 sm:px-6 h-6 sm:h-8 md:h-10' onClick={function(e){setSearch(e.target.value='')}}><img alt='searchLogo'src={searchLogo} className='w-4'/></button></Link>
          </div>
         {/*  */}
 
        {status&& <div className='w-[130px] sm:w-[300px] md:w-[500px] mt-2 shadow-md rounded-2xl bg-white absolute'>
             <ul className='list-none font-sans'>
-      {suggestion?.map((e,i)=><Link to={'/watch?v='+e.id} key={i}><h1 className='ml-4 shadow-md'>{e}</h1></Link>)}
+      {suggestion?.map((e,i)=><Link to={'/results/?search_query='+search} key={i}><h1 className='ml-4 shadow-md'>{e}</h1></Link>)}
       
             </ul>
          </div>}

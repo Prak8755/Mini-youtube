@@ -21,13 +21,13 @@ const WatchContainer = () => {
 
   useEffect(()=>{
 dispatch(closeMenu())
-dispatch(setSearchBar());
+
   },[])
 
   
   return (
     <> 
-    <div className='absolute -z-10 w-full p-6 overflow-hidden md:flex md:gap-6 mt-24' onClick={function(){dispatch(setSearchBar())}}>
+    <div className='absolute -z-10 w-full p-6 overflow-hidden md:flex md:gap-6 mt-24'>
 
       {/* video and comment div */}
    <div className='md:w-[60%]'>

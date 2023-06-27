@@ -57,7 +57,10 @@ const Applayout=createBrowserRouter([{
       element:<Music/>
     },
     
-
+{
+  path:'/results',
+  element:<SearchVideos/>
+}
 
   ]
 }])

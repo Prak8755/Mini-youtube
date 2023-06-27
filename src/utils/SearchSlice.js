@@ -5,14 +5,17 @@ import { searchLogo } from "./Links";
 const SearchSlice=createSlice({
     name:'search',
     initialState:{
-        isVisible:false,
+        isVisible:true,
     },
     reducers:{
         setSearchBar(state,action){
-state.isVisible=!state.isVisible
-        }
+state.isVisible=action.payload;
+        },
+        showSearchBar(state,action){
+             state.isVisible=action.payload}
+       
     }
 })
-export const {setSearchBar}=SearchSlice.actions;
+export const {setSearchBar,showSearchBar}=SearchSlice.actions;
 
 export default SearchSlice.reducer;
