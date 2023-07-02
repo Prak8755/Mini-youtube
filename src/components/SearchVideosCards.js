@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SearchVideosCards = ({data}) => {
-    console.log(data?.snippet?.description)
+   
   return (
     <>
     

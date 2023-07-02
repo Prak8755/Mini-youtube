@@ -3,7 +3,7 @@ import { HambergerLogo, Youtubelogo, searchLogo, userIcon } from '../utils/Links
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/toggleSlice';
 import { Link ,Outlet, useNavigate} from 'react-router-dom';
-import { showSearchBar } from '../utils/SearchSlice';
+import  { showSearchBar } from '../utils/SearchSlice';
 
 
 const Header = () => {
@@ -16,19 +16,18 @@ const [suggestion,setSuggestion]=useState([]);
 // const [showSuggestion,setShowSuggestion]=useState(false);
 
 useEffect(()=>{
-
 const timer=setTimeout(() => {
-   getData();
+   async function getData(){
+      const data=await fetch('https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q='+search);
+      const json =await data.json();
+      setSuggestion(json[1]);
+   }
+   getData()
 }, 300);
-
-
-
 return function(){
    clearTimeout(timer)
 }
 },[search])
-
-
 
 
 
@@ -45,11 +44,7 @@ function toggleTheme(){
    setShowLight(!showLight)
 }
 
-async function getData(){
-   const data=await fetch('https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q='+search);
-   const json =await data.json();
-   setSuggestion(json[1]);
-}
+
 
    const dispatch=useDispatch();
    function toggle(){

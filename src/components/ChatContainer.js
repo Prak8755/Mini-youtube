@@ -18,14 +18,14 @@ const timer=setInterval(() => {
         name:RandomName(),
         message:generateQuote(),
     }))
-}, 3000);
+}, 1000);
 
 
 return function(){
     clearInterval(timer)
 }
 
-    },[])
+    },[dispatch])
 
 //for own chat to add
     const [chat,setChat]=useState('')

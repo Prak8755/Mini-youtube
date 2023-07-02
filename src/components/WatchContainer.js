@@ -20,7 +20,7 @@ const WatchContainer = () => {
   useEffect(()=>{
 dispatch(closeMenu())
 
-  },[])
+  },[dispatch])
 
   
   return (
