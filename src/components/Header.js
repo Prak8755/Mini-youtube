@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { HambergerLogo, Youtubelogo, searchLogo, userIcon } from '../utils/Links'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/toggleSlice';
-import { Link ,Outlet, useNavigate, useSearchParams} from 'react-router-dom';
+import { Link ,Outlet, useNavigate} from 'react-router-dom';
 import { showSearchBar } from '../utils/SearchSlice';
 
 

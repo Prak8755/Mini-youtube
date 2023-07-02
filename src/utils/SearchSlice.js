@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { searchLogo } from "./Links";
 
 
 const SearchSlice=createSlice({

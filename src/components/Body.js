@@ -1,7 +1,7 @@
 import React from 'react'
 import Slidebar from './Slidebar';
 
-import { Outlet } from 'react-router-dom';
+
 import Maincontiner from './Maincontiner';
 
 const Body= () => {

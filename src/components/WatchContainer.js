@@ -6,8 +6,6 @@ import { useSearchParams } from 'react-router-dom'
 import {  userIcon } from '../utils/Links';
 import ChatContainer from './ChatContainer';
 import Comments from './Comments'
-import  { setSearchBar } from '../utils/SearchSlice';
-import { useSelector } from 'react-redux';
 
 
 const WatchContainer = () => {

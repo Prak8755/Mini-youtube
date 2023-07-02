@@ -1,14 +1,14 @@
 import React from 'react'
-
+import {FaRegUser} from 'react-icons/fa';
 const VideoCards = (props) => {
 
 
   return (
     <>
-     <div className='m-4 w-[350px]'>
-      <img className='w-54 hover:rounded-none rounded-lg' alt=''src={props?.data?.snippet?.thumbnails?.medium?.url}/>
+     <div className='m-4 w-[350px] h-[350px]'>
+      <img className='w-54 hover:rounded-none rounded-[15px] duration-150' alt=''src={props?.data?.snippet?.thumbnails?.medium?.url}/>
       <div className='flex gap-4 mt-4'>
-        <img className='h-6' alt='user' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCbU49DD_iYcjSUEXG-Oy7POjJzaMn1GYEZg&usqp=CAU'/>
+      <FaRegUser size={25}/>
         <div className=''>
           <h2 className='font-bold text'>{props?.data?.snippet?.channelTitle}</h2>
           <p className='text-gray-600'>{props?.data?.snippet?.title}</p>
