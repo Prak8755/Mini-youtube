@@ -1,17 +1,28 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import {BsFillStopwatchFill} from 'react-icons/bs';
+import {AiFillAppstore} from 'react-icons/ai';
+import {BsFillFileEarmarkMusicFill} from 'react-icons/bs';
+import {FaVideoSlash} from 'react-icons/fa';
 
 
 const ToggleShimmer = () => {
   return (
     <>
-    <div className='flex flex-col fixed w-[100px] sm:w-[150px] ml-8 gap-10 mt-8 '>
+    <div className='flex flex-col fixed w-[100px] sm:w-[150px] ml-8 gap-10 mt-8 h-screen overflow-scroll '>
    <Link to='/'> <i className="fa-solid fa-house text-2xl"></i></Link>
     <Link to='/library'><i className="fa-sharp fa-solid fa-film text-2xl"></i></Link>
     <Link to='notifications'><i className="fa-solid fa-bell text-2xl"></i></Link>
    <Link to='/music'> <i className="fa-solid fa-photo-film text-2xl"></i></Link>
+   <Link to='/music'><BsFillStopwatchFill size={28}/> </Link>
+   <Link to='/music'><AiFillAppstore size={28}/> </Link>
+   <Link to='/music'><BsFillFileEarmarkMusicFill size={28}/> </Link>
+   <Link to='/music'><FaVideoSlash size={28}/> </Link>
+   <Link to='/music'><BsFillStopwatchFill size={28}/> </Link>
+
+   
+
       </div>
     </>
   )
