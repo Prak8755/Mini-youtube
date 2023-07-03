@@ -47,6 +47,7 @@ function toggleTheme(){
 
 
    const dispatch=useDispatch();
+
    function toggle(){
       dispatch(toggleMenu())
    }
@@ -56,7 +57,7 @@ const status=useSelector(s=>s.search.isVisible);
   return (
     <>
     <div className='fixed top-0 bg-white w-full'>
-        <div className=' flex justify-between items-center px-8 py-4 '>
+        <div className=' flex justify-between items-center px-4 py-4 gap-4'>
          <div className='flex gap-2'>
             <img alt='toggle' src={HambergerLogo} className='w-6 sm:w-8 cursor-pointer' onClick={()=>toggle()}/>
             <Link to='/'><img alt='logo'src={Youtubelogo} className='w-16 sm:w-24'/></Link>
@@ -78,7 +79,7 @@ const status=useSelector(s=>s.search.isVisible);
          </div>}
          {/*  */}
          </div>
-         <div className='flex items-center gap-6'>
+         <div className='flex items-center gap-2 sm:sm-6'>
 
        {showLight? <i className="fa-solid cursor-pointer text-2xl fa-moon " onClick={()=>toggleTheme()}></i>: <i className="fa-solid fa-sun cursor-pointer text-red-600 text-2xl"  onClick={()=>toggleTheme()}></i> }
           <img alt='userIcon' src={userIcon} className='w-8'/>
