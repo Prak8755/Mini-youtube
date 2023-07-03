@@ -56,10 +56,10 @@ const status=useSelector(s=>s.search.isVisible);
   return (
     <>
     <div className='fixed top-0 bg-white w-full'>
-        <div className=' flex justify-between items-center p-2 sm:p-4 md:pd-6  '>
+        <div className=' flex justify-between items-center px-8 py-4 '>
          <div className='flex gap-2'>
-            <img alt='toggle' src={HambergerLogo} className='w-4 sm:w-8 cursor-pointer' onClick={()=>toggle()}/>
-            <Link to='/'><img alt='logo'src={Youtubelogo} className='w-14 sm:w-24'/></Link>
+            <img alt='toggle' src={HambergerLogo} className='w-6 sm:w-8 cursor-pointer' onClick={()=>toggle()}/>
+            <Link to='/'><img alt='logo'src={Youtubelogo} className='w-16 sm:w-24'/></Link>
          </div>
          <div className='relative'>
          <div className='flex items-center'>
