@@ -63,10 +63,10 @@ const status=useSelector(s=>s.search.isVisible);
          </div>
          <div className='relative'>
          <div className='flex items-center'>
-            <form onSubmit={function(e){e.preventDefault(); navigate('/results/?search_query='+search);}}>
-               <input type='text' className='border border-gray-500 rounded-l-3xl w-[130px] sm:w-[300px] md:w-[500px] h-6 sm:h-8 md:h-10 shadow-md text-center ' value={search} onChange={function(e){setSearch(e.target.value);}}  onFocus={function(){dispatch(showSearchBar(true)); console.log('true')}}   /> 
+            <form className='flex justify-center items-center' onSubmit={function(e){e.preventDefault(); navigate('/results/?search_query='+search);}}>
+               <input type='text' className='border border-gray-500 rounded-l-3xl w-[130px] sm:w-[300px] md:w-[500px] h-6 sm:h-8 md:h-10 shadow-md text-center ' value={search} onChange={function(e){setSearch(e.target.value);}}  onFocus={function(){dispatch(showSearchBar(true))}}   /> 
+               <Link to={'/results/?search_query='+search}> <button className=' shadow-md border border-l-0 my-1 bg-slate-50 border-gray-500 rounded-r-3xl px-2 sm:px-6 h-6 sm:h-8 md:h-10' onClick={function(e){setSearch(e.target.value='')}}><img alt='searchLogo'src={searchLogo} className='w-4'/></button></Link>
              </form>
-           <Link to={'/results/?search_query='+search}> <button className=' shadow-md border border-l-0 bg-slate-50 border-gray-500 rounded-r-3xl px-2 sm:px-6 h-6 sm:h-8 md:h-10' onClick={function(e){setSearch(e.target.value='')}}><img alt='searchLogo'src={searchLogo} className='w-4'/></button></Link>
          </div>
         {/*  */}
 
